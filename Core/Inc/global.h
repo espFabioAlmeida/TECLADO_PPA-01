@@ -14,6 +14,7 @@ enum BOOL {
 };
 
 #define TAMANHO_RS485_BUFFER  64
+#define VERSAO_FIRMWARE 1
 
 typedef struct {
 	uint8_t minutos;
@@ -24,6 +25,18 @@ typedef struct {
 enum TIPO_CRONOMETRO {
 	REGRESSIVO,
 	PROGRESSIVO
+};
+
+enum SIMBOLOS_DISPLAYS {
+    LCD_DOT_TODO_ACESO,
+    LCD_SETA_DIREITA,
+    LCD_SETA_ESQUERDA,
+    LCD_GRAUS,
+    LCD_MICRO,
+    LCD_RAIZ_QUADRADA,
+    LCD_OHM,
+    LCD_SIMBOLO_PI,
+    LCD_DIVISAO
 };
 
 enum COMANDO_PLACAR {
@@ -67,6 +80,7 @@ extern uint8_t
 	flagLedCPU,
 	flagLedCOM,
 
+	flagBuzzer,
 	flagCampainha,
 	flagCronometro,
 	flagCronometroEstourado,

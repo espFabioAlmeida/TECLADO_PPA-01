@@ -52,6 +52,38 @@ UART_HandleTypeDef huart2;
 DMA_HandleTypeDef hdma_usart2_rx;
 
 /* USER CODE BEGIN PV */
+CronometroTypeDef
+	cronometro,
+	setpointCronometro;
+
+uint8_t
+	flagLedCPU = false,
+	flagLedCOM = false,
+
+	flagBuzzer = false,
+	flagCronometro = false,
+
+	flagPacoteRS485 = false;
+
+uint8_t
+	tipoCronometro = PROGRESSIVO,
+
+	contadorRS485Buffer = 0;
+
+char
+	rs485DataIn = 0;
+
+uint16_t
+	pontosEquipeA = 0,
+	pontosEquipeB = 0;
+
+uint8_t
+	displaysCronometro[5],
+	displaysEquipeA[5],
+	displaysEquipeB[5];
+
+char
+	rs485Buffer[TAMANHO_RS485_BUFFER];
 
 /* USER CODE END PV */
 
@@ -143,6 +175,10 @@ int main(void)
 
   verificaEeprom();
   readEeprom();
+
+  inicializaLcd();
+  telaInicial();
+  telaOperacao();
 
   HAL_UART_Receive_DMA(&huart2, &rs485DataIn, 1);
   /* USER CODE END 2 */

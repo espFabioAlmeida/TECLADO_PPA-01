@@ -74,7 +74,7 @@ void writeExternalEeprom(uint8_t device, uint16_t address, uint8_t data) {
 
 	deviceHex <<= 1;
 
-	HAL_I2C_Master_Transmit(&hi2c1, deviceHex, &pData, quantidadeDados, 100);
+	HAL_I2C_Master_Transmit(&hi2c2, deviceHex, &pData, quantidadeDados, 100);
 	HAL_Delay(10);
 }
 /*==============================================================================
@@ -125,10 +125,10 @@ uint8_t readExternalEeprom(uint8_t device, uint16_t address) {
 
 	deviceHex <<= 1;
 
-	HAL_I2C_Master_Transmit(&hi2c1, deviceHex, &pData, quantidadeDados, 100);
+	HAL_I2C_Master_Transmit(&hi2c2, deviceHex, &pData, quantidadeDados, 100);
 	HAL_Delay(10);
 	deviceHex ++;
-	HAL_I2C_Master_Receive(&hi2c1, deviceHex, &data, 1, 100);
+	HAL_I2C_Master_Receive(&hi2c2, deviceHex, &data, 1, 100);
 	HAL_Delay(10);
 
 	return data;
@@ -143,7 +143,7 @@ void writeAllEeprom() {
 READ EEPROM
 ==============================================================================*/
 void readEeprom() {
-	if(HAL_I2C_IsDeviceReady(&hi2c1, EEPROM_ADDR_0 + 1, 10, 100)) {
+	if(HAL_I2C_IsDeviceReady(&hi2c2, EEPROM_ADDR_0 + 1, 10, 100)) {
 
 	}
 }
@@ -151,7 +151,7 @@ void readEeprom() {
 APAGA EEPROM
 ==============================================================================*/
 void apagaEeprom() {
-	if(HAL_I2C_IsDeviceReady(&hi2c1, EEPROM_ADDR_0 + 1, 10, 100)) {
+	if(HAL_I2C_IsDeviceReady(&hi2c2, EEPROM_ADDR_0 + 1, 10, 100)) {
 		writeExternalEeprom(0, 0, EEPROM_INICIALIZADA);
 
 		writeAllEeprom();
@@ -161,7 +161,7 @@ void apagaEeprom() {
 VERIFICA EEPROM
 ==============================================================================*/
 void verificaEeprom() {
-	if(HAL_I2C_IsDeviceReady(&hi2c1, EEPROM_ADDR_0 + 1, 10, 100)) {
+	if(HAL_I2C_IsDeviceReady(&hi2c2, EEPROM_ADDR_0 + 1, 10, 100)) {
 		if(readExternalEeprom(0, 0) != EEPROM_INICIALIZADA) {
 			apagaEeprom();
 		}
