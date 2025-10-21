@@ -12,7 +12,7 @@ CONSTANTES DO ARQUIVO
 /*=============================================================================
 SUBROTINAS TECLADO
 ==============================================================================*/
-void botoesPontos() {
+void comandosTeclado() {
 	static uint8_t whileBotaoPontoA = false, whileBotao2PontosA = false, whileBotao3PontosA = false, whileBotaoRemovePontoA = false,
 			whileBotaoFaltaA = false, whileBotaoRemoveFaltaA = false, whileBotaoTempoA = false;
 	static uint8_t whileBotaoPontoB = false, whileBotao2PontosB = false, whileBotao3PontosB = false, whileBotaoRemovePontoB = false,
