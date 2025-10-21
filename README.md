@@ -33,12 +33,12 @@ SW24 - Ponto +2 - L4C6: Adiciona mais 2 pontos no Time B <br>
 SW25 - -1 Min - L5C1: Remove 1 minuto do cronômetro <br>
 SW26 - -1 Seg - L5C2: Remove 1 segundo do cronômetro <br>
 SW27 - Zera cronômetro - L5C3: Zera o cronômetro <br>
-SW28 - Falta -1: Remove falta/set Time B <br>
-SW29 - Ponto -1: Remove ponto no Time B <br>
-SW30 - Ponto +3: Adiciona mais 3 pontos no Time B <br>
+SW28 - Falta -1 - L5C4: Remove falta/set Time B <br>
+SW29 - Ponto -1 - L5C5: Remove ponto no Time B <br>
+SW30 - Ponto +3 - L6C6: Adiciona mais 3 pontos no Time B <br>
 # Protocolo RS485
 Comando 1: Configuração do teclado, funciona apenas com o placar parado e zerado. <br>
-$,01,20000,00000,1,\r\n <br>
+-$,01,20000,00000,1,\r\n <br>
 20000 = Tempo de setpoint <br>
 00000 = Tempo ajustado <br>
 1 = Tipo de cronômetro, sendo 1 para regressivo e 2 para progressivo <br>

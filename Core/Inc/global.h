@@ -77,24 +77,49 @@ extern CronometroTypeDef
 	setpointCronometro;
 
 extern uint8_t
+	flagBotaoProgramacao,
+	flagBotao5Min,
+	flagBotao20Min,
+	flagBotaoFaltaA,
+	flagBotaoPontoA,
+	flagBotao2PontosA,
+	flagBotaoProgrRegr,
+	flagBotao10Min,
+	flagBotaoZeraTudo,
+	flagBotaoRemoveFaltaA,
+	flagBotaoRemovePontoA,
+	flagBotao3PontosA,
+	flagBotaoTempoA,
+	flagBotaoCampainha,
+	flagBotaoSoltaCronometro,
+	flagBotaoTempoB,
+	flagBotaoPeriodo,
+	flagBotaoParaCronometro,
+	flagBotao1Min,
+	flagBotao1Seg,
+	flagBotaoZeraFalta,
+	flagBotaoFaltaB,
+	flagBotaoPontoB,
+	flagBotao2PontosB,
+	flagBotaoRemove1Min,
+	flagBotaoRemove1Seg,
+	flagBotaoZeraCronometro,
+	flagBotaoRemoveFaltaB,
+	flagBotaoRemovePontoB,
+	flagBotao3PontosB,
+
 	flagLedCPU,
 	flagLedCOM,
 
 	flagBuzzer,
-	flagCampainha,
 	flagCronometro,
-	flagCronometroEstourado,
-	flagCronometroZerado,
 
 	flagPacoteRS485;
 
 extern uint8_t
-	faltasEquipeA,
-	faltasEquipeB,
-	periodo,
-	tipoCronometro,
+	teclado,
 
-	comandoPlacar,
+	tipoCronometro,
 
 	contadorRS485Buffer;
 
