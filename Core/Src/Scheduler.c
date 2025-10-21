@@ -30,6 +30,38 @@ TAREFAS 100ms
 void tarefas100ms() {
 	reiniciaWatchDog();
 
+	if(flagBotaoZeraFalta) {
+		if(pressAndHoldZeraFaltas < TEMPO_PRESS_AND_HOLD) {
+			pressAndHoldZeraFaltas ++;
+		}
+	}
+	else {
+		pressAndHoldZeraFaltas = 0;
+	}
+
+	if(flagBotaoZeraCronometro) {
+		if(pressAndHoldZeraCronometro < TEMPO_PRESS_AND_HOLD) {
+			pressAndHoldZeraCronometro ++;
+		}
+	}
+	else {
+		pressAndHoldZeraCronometro = 0;
+	}
+
+	if(flagBotaoZeraTudo) {
+		if(pressAndHoldZeraTudo < TEMPO_PRESS_AND_HOLD) {
+			pressAndHoldZeraTudo ++;
+		}
+	}
+	else {
+		pressAndHoldZeraTudo = 0;
+	}
+
+	if(pressAndHoldPeriodo) {
+		if(pressAndHoldPeriodo < TEMPO_PRESS_AND_HOLD) {
+			pressAndHoldPeriodo ++;
+		}
+	}
 }
 /*==============================================================================
 TAREFAS 1s

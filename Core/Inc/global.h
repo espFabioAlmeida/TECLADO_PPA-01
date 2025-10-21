@@ -16,6 +16,8 @@ enum BOOL {
 #define TAMANHO_RS485_BUFFER  64
 #define VERSAO_FIRMWARE 1
 
+#define TEMPO_PRESS_AND_HOLD 300
+
 typedef struct {
 	uint8_t minutos;
 	uint8_t segundos;
@@ -128,7 +130,12 @@ extern char
 
 extern uint16_t
 	pontosEquipeA,
-	pontosEquipeB;
+	pontosEquipeB,
+
+	pressAndHoldZeraFaltas,
+	pressAndHoldZeraCronometro,
+	pressAndHoldZeraTudo,
+	pressAndHoldPeriodo;
 
 extern uint8_t
 	displaysCronometro[5],

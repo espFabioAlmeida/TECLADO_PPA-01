@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////////
-//ARQUIVO:    SubrotinasTeclado
+//ARQUIVO:    UtilityTeclado
 //AUTOR:      Fábio Almeida
 //CIRADO:     21/10/2024
 //OBSERVAÇÕES:

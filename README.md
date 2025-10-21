@@ -43,7 +43,8 @@ Comando 1: Configuração do teclado, funciona apenas com o placar parado e zera
 00000 = Tempo ajustado <br>
 1 = Tipo de cronômetro, sendo 1 para regressivo e 2 para progressivo <br>
 <br>
-Comando 2 à 23: Ações do teclado. 02: TIME A +1 <br>
+Comando 2 à 23: Ações do teclado.<br> 
+02: TIME A +1 <br>
 03: TIME A +2 <br>
 04: TIME A +3 <br>
 05: TIME A -1 <br>

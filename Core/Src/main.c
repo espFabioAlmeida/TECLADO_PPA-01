@@ -106,7 +106,12 @@ char
 
 uint16_t
 	pontosEquipeA = 0,
-	pontosEquipeB = 0;
+	pontosEquipeB = 0,
+
+	pressAndHoldZeraFaltas = 0,
+	pressAndHoldZeraCronometro = 0,
+	pressAndHoldZeraTudo = 0,
+	pressAndHoldPeriodo = 0;
 
 uint8_t
 	displaysCronometro[5],
@@ -218,6 +223,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
