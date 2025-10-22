@@ -62,6 +62,12 @@ void tarefas100ms() {
 			pressAndHoldPeriodo ++;
 		}
 	}
+
+	if(pressAndHoldProgramacao) {
+		if(pressAndHoldProgramacao < TEMPO_PRESS_AND_HOLD) {
+			pressAndHoldProgramacao ++;
+		}
+	}
 }
 /*==============================================================================
 TAREFAS 1s

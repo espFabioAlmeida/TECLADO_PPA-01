@@ -61,6 +61,19 @@ void telaOperacao() {
 	}
 }
 /*=============================================================================
+TELA AJUSTA VALOR ATUAL CRONOMETRO
+==============================================================================*/
+void telaAjustaValorAtualCronometro() {
+	limpaLcd();
+	lcdPosLc(1, 1);
+	lcdEscreve("COMECA COM: ");
+	escreveDado(cronometro.minutos, 2, 1, 2);
+	lcdEscreve(":");
+	escreveDado(cronometro.segundos, 0, 0, 2);
+	lcdEscreve(".");
+	escreveDado(cronometro.decimais, 0, 0, 1);
+}
+/*=============================================================================
 TELA AJUSTA CRONOMETRO
 ==============================================================================*/
 void telaAjustaCronometro() {

@@ -132,6 +132,7 @@ extern uint16_t
 	pontosEquipeA,
 	pontosEquipeB,
 
+	pressAndHoldProgramacao,
 	pressAndHoldZeraFaltas,
 	pressAndHoldZeraCronometro,
 	pressAndHoldZeraTudo,
@@ -143,6 +144,7 @@ extern uint8_t
 	displaysEquipeB[5];
 
 extern char
-	rs485Buffer[TAMANHO_RS485_BUFFER];
+	rs485Buffer[TAMANHO_RS485_BUFFER],
+	rs485EnviaBuffer[TAMANHO_RS485_BUFFER];
 
 #endif /* INC_GLOBAL_H_ */

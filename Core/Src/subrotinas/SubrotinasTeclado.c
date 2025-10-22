@@ -202,6 +202,7 @@ void comandosTeclado() {
 	else {
 		if(flagBotaoSoltaCronometro) {
 			whileBotaoSoltaCronometro = true;
+			flagCronometro = true;
 			HAL_UART_Transmit(&huart2, "$,16,\r\n", 7, 200);
 		}
 	}
@@ -214,6 +215,7 @@ void comandosTeclado() {
 	else {
 		if(flagBotaoParaCronometro) {
 			whileBotaoParaCronometro = true;
+			flagCronometro = false;
 			HAL_UART_Transmit(&huart2, "$,17,\r\n", 7, 200);
 		}
 	}

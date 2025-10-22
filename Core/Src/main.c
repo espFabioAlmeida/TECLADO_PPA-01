@@ -108,6 +108,7 @@ uint16_t
 	pontosEquipeA = 0,
 	pontosEquipeB = 0,
 
+	pressAndHoldProgramacao = 0,
 	pressAndHoldZeraFaltas = 0,
 	pressAndHoldZeraCronometro = 0,
 	pressAndHoldZeraTudo = 0,
@@ -119,7 +120,8 @@ uint8_t
 	displaysEquipeB[5];
 
 char
-	rs485Buffer[TAMANHO_RS485_BUFFER];
+	rs485Buffer[TAMANHO_RS485_BUFFER],
+	rs485EnviaBuffer[TAMANHO_RS485_BUFFER];
 
 /* USER CODE END PV */
 
@@ -224,6 +226,7 @@ int main(void)
   while (1)
   {
 	  comandosTeclado();
+	  menuConfiguracoes();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
