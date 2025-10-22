@@ -119,8 +119,6 @@ extern uint8_t
 	flagPacoteRS485;
 
 extern uint8_t
-	teclado,
-
 	tipoCronometro,
 
 	contadorRS485Buffer;
@@ -137,11 +135,6 @@ extern uint16_t
 	pressAndHoldZeraCronometro,
 	pressAndHoldZeraTudo,
 	pressAndHoldPeriodo;
-
-extern uint8_t
-	displaysCronometro[5],
-	displaysEquipeA[5],
-	displaysEquipeB[5];
 
 extern char
 	rs485Buffer[TAMANHO_RS485_BUFFER],

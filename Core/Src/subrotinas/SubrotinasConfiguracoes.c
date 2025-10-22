@@ -20,87 +20,115 @@ void menuConfiguracaoValorAtualCronometro() {
 
 	while(flagMenu) {
 		if(flagBotao1Min) {
-			cronometro.minutos ++;
-			if(cronometro.minutos > 99) {
-				cronometro.minutos = 0;
+			flagBuzzer = true;
+			while(flagBotao1Min) {
+				cronometro.minutos ++;
+				if(cronometro.minutos > 99) {
+					cronometro.minutos = 0;
+				}
+				telaAjustaValorAtualCronometro();
+				HAL_Delay(DEBOUNCE_HOLD);
 			}
-			telaAjustaValorAtualCronometro();
-			HAL_Delay(DEBOUNCE_HOLD);
 		}
 
 		if(flagBotao5Min) {
-			cronometro.minutos += 5;
-			if(cronometro.minutos > 99) {
-				cronometro.minutos = 0;
+			flagBuzzer = true;
+			while(flagBotao5Min) {
+				cronometro.minutos += 5;
+				if(cronometro.minutos > 99) {
+					cronometro.minutos = 0;
+				}
+				telaAjustaValorAtualCronometro();
+				HAL_Delay(DEBOUNCE_HOLD);
 			}
-			telaAjustaValorAtualCronometro();
-			HAL_Delay(DEBOUNCE_HOLD);
 		}
 
 		if(flagBotao10Min) {
-			cronometro.minutos += 10;
-			if(cronometro.minutos > 99) {
-				cronometro.minutos = 0;
+			flagBuzzer = true;
+			while(flagBotao10Min) {
+				cronometro.minutos += 10;
+				if(cronometro.minutos > 99) {
+					cronometro.minutos = 0;
+				}
+				telaAjustaValorAtualCronometro();
+				HAL_Delay(DEBOUNCE_HOLD);
 			}
-			telaAjustaValorAtualCronometro();
-			HAL_Delay(DEBOUNCE_HOLD);
 		}
 
 		if(flagBotao20Min) {
-			cronometro.minutos += 20;
-			if(cronometro.minutos > 99) {
-				cronometro.minutos = 0;
+			flagBuzzer = true;
+			while(flagBotao20Min) {
+				cronometro.minutos += 20;
+				if(cronometro.minutos > 99) {
+					cronometro.minutos = 0;
+				}
+				telaAjustaValorAtualCronometro();
+				HAL_Delay(DEBOUNCE_HOLD);
 			}
-			telaAjustaValorAtualCronometro();
-			HAL_Delay(DEBOUNCE_HOLD);
 		}
 
 		if(flagBotaoRemove1Min) {
-			cronometro.minutos --;
-			if(cronometro.minutos > 99) {
-				cronometro.minutos = 99;
+			flagBuzzer = true;
+			while(flagBotaoRemove1Min) {
+				cronometro.minutos --;
+				if(cronometro.minutos > 99) {
+					cronometro.minutos = 99;
+				}
+				telaAjustaValorAtualCronometro();
+				HAL_Delay(DEBOUNCE_HOLD);
 			}
-			telaAjustaValorAtualCronometro();
-			HAL_Delay(DEBOUNCE_HOLD);
 		}
 
 		if(flagBotao1Seg) {
-			cronometro.segundos ++;
-			if(cronometro.segundos > 59) {
-				cronometro.segundos = 0;
+			flagBuzzer = true;
+			while(flagBotao1Seg) {
+				cronometro.segundos ++;
+				if(cronometro.segundos > 59) {
+					cronometro.segundos = 0;
+				}
+				telaAjustaValorAtualCronometro();
+				HAL_Delay(DEBOUNCE_HOLD);
 			}
-			telaAjustaValorAtualCronometro();
-			HAL_Delay(DEBOUNCE_HOLD);
 		}
 
 		if(flagBotaoRemove1Seg) {
-			cronometro.segundos --;
-			if(cronometro.segundos > 59) {
-				cronometro.segundos = 59;
+			flagBuzzer = true;
+			while(flagBotaoRemove1Seg) {
+				cronometro.segundos --;
+				if(cronometro.segundos > 59) {
+					cronometro.segundos = 59;
+				}
+				telaAjustaValorAtualCronometro();
+				HAL_Delay(DEBOUNCE_HOLD);
 			}
-			telaAjustaValorAtualCronometro();
-			HAL_Delay(DEBOUNCE_HOLD);
 		}
 
 		if(flagBotaoPontoA || flagBotaoPontoB) {
-			cronometro.decimais ++;
-			if(cronometro.decimais > 9) {
-				cronometro.decimais = 0;
+			flagBuzzer = true;
+			while(flagBotaoPontoA || flagBotaoPontoB) {
+				cronometro.decimais ++;
+				if(cronometro.decimais > 9) {
+					cronometro.decimais = 0;
+				}
+				telaAjustaValorAtualCronometro();
+				HAL_Delay(DEBOUNCE_HOLD);
 			}
-			telaAjustaValorAtualCronometro();
-			HAL_Delay(DEBOUNCE_HOLD);
 		}
 
 		if(flagBotaoRemovePontoA || flagBotaoRemovePontoB) {
-			cronometro.decimais --;
-			if(cronometro.decimais > 9) {
-				cronometro.decimais = 9;
+			flagBuzzer = true;
+			while(flagBotaoRemovePontoA || flagBotaoRemovePontoB) {
+				cronometro.decimais --;
+				if(cronometro.decimais > 9) {
+					cronometro.decimais = 9;
+				}
+				telaAjustaValorAtualCronometro();
+				HAL_Delay(DEBOUNCE_HOLD);
 			}
-			telaAjustaValorAtualCronometro();
-			HAL_Delay(DEBOUNCE_HOLD);
 		}
 
 		if(flagBotaoProgramacao) {
+			flagBuzzer = true;
 			memset(rs485EnviaBuffer, TAMANHO_RS485_BUFFER, 0x00);
 			strcat(rs485EnviaBuffer, "$,01,");
 			sprintfRs485(setpointCronometro.minutos, 3);
@@ -129,82 +157,106 @@ void menuConfiguracaoCronometro() {
 
 	while(flagMenu) {
 		if(flagBotao1Min) {
-			setpointCronometro.minutos ++;
-			if(setpointCronometro.minutos > 99) {
-				setpointCronometro.minutos = 0;
+			flagBuzzer = true;
+			while(flagBotao1Min) {
+				setpointCronometro.minutos ++;
+				if(setpointCronometro.minutos > 99) {
+					setpointCronometro.minutos = 0;
+				}
+				telaAjustaCronometro();
+				HAL_Delay(DEBOUNCE_HOLD);
 			}
-			telaAjustaCronometro();
-			HAL_Delay(DEBOUNCE_HOLD);
 		}
-
 		if(flagBotao5Min) {
-			setpointCronometro.minutos += 5;
-			if(setpointCronometro.minutos > 99) {
-				setpointCronometro.minutos = 0;
+			flagBuzzer = true;
+			while(flagBotao5Min) {
+				setpointCronometro.minutos += 5;
+				if(setpointCronometro.minutos > 99) {
+					setpointCronometro.minutos = 0;
+				}
+				telaAjustaCronometro();
+				HAL_Delay(DEBOUNCE_HOLD);
 			}
-			telaAjustaCronometro();
-			HAL_Delay(DEBOUNCE_HOLD);
 		}
 
 		if(flagBotao10Min) {
-			setpointCronometro.minutos += 10;
-			if(setpointCronometro.minutos > 99) {
-				setpointCronometro.minutos = 0;
+			flagBuzzer = true;
+			while(flagBotao10Min) {
+				setpointCronometro.minutos += 10;
+				if(setpointCronometro.minutos > 99) {
+					setpointCronometro.minutos = 0;
+				}
+				telaAjustaCronometro();
+				HAL_Delay(DEBOUNCE_HOLD);
 			}
-			telaAjustaCronometro();
-			HAL_Delay(DEBOUNCE_HOLD);
 		}
 
 		if(flagBotao20Min) {
-			setpointCronometro.minutos += 20;
-			if(setpointCronometro.minutos > 99) {
-				setpointCronometro.minutos = 0;
+			flagBuzzer = true;
+			while(flagBotao20Min) {
+				setpointCronometro.minutos += 20;
+				if(setpointCronometro.minutos > 99) {
+					setpointCronometro.minutos = 0;
+				}
+				telaAjustaCronometro();
+				HAL_Delay(DEBOUNCE_HOLD);
 			}
-			telaAjustaCronometro();
-			HAL_Delay(DEBOUNCE_HOLD);
 		}
 
 		if(flagBotaoRemove1Min) {
-			setpointCronometro.minutos --;
-			if(setpointCronometro.minutos > 99) {
-				setpointCronometro.minutos = 99;
+			flagBuzzer = true;
+			while(flagBotaoRemove1Min) {
+				setpointCronometro.minutos --;
+				if(setpointCronometro.minutos > 99) {
+					setpointCronometro.minutos = 99;
+				}
+				telaAjustaCronometro();
+				HAL_Delay(DEBOUNCE_HOLD);
 			}
-			telaAjustaCronometro();
-			HAL_Delay(DEBOUNCE_HOLD);
 		}
 
 		if(flagBotao1Seg) {
-			setpointCronometro.segundos ++;
-			if(setpointCronometro.segundos > 59) {
-				setpointCronometro.segundos = 0;
+			flagBuzzer = true;
+			while(flagBotao1Seg) {
+				setpointCronometro.segundos ++;
+				if(setpointCronometro.segundos > 59) {
+					setpointCronometro.segundos = 0;
+				}
+				telaAjustaCronometro();
+				HAL_Delay(DEBOUNCE_HOLD);
 			}
-			telaAjustaCronometro();
-			HAL_Delay(DEBOUNCE_HOLD);
 		}
 
 		if(flagBotaoRemove1Seg) {
-			setpointCronometro.segundos --;
-			if(setpointCronometro.segundos > 59) {
-				setpointCronometro.segundos = 59;
+			flagBuzzer = true;
+			while(flagBotaoRemove1Seg) {
+				setpointCronometro.segundos --;
+				if(setpointCronometro.segundos > 59) {
+					setpointCronometro.segundos = 59;
+				}
+				telaAjustaCronometro();
+				HAL_Delay(DEBOUNCE_HOLD);
 			}
-			telaAjustaCronometro();
-			HAL_Delay(DEBOUNCE_HOLD);
 		}
 
 		if(flagBotaoProgrRegr) {
-			if(tipoCronometro == REGRESSIVO) {
-				tipoCronometro = PROGRESSIVO;
+			flagBuzzer = true;
+			while(flagBotaoProgrRegr) {
+				if(tipoCronometro == REGRESSIVO) {
+					tipoCronometro = PROGRESSIVO;
+				}
+				else {
+					tipoCronometro = REGRESSIVO;
+				}
+				telaAjustaCronometro();
+				HAL_Delay(DEBOUNCE_HOLD);
 			}
-			else {
-				tipoCronometro = REGRESSIVO;
-			}
-			telaAjustaCronometro();
-			HAL_Delay(DEBOUNCE_HOLD);
 		}
 
 		if(pressAndHoldProgramacao) {
 			if(pressAndHoldProgramacao >= TEMPO_PRESS_AND_HOLD) {
 				pressAndHoldProgramacao = 0;
+				flagBuzzer = true;
 				menuConfiguracaoValorAtualCronometro();
 				flagMenu = false;
 			}
@@ -216,6 +268,7 @@ void menuConfiguracaoCronometro() {
 		else {
 			if(flagBotaoProgramacao) {
 				pressAndHoldProgramacao = 1;
+				flagBuzzer = true;
 			}
 		}
 	}
@@ -229,52 +282,58 @@ void menuConfiguracaoPontos() {
 
 	while(flagMenu) {
 		if(flagBotaoPontoA) {
-			if(pressAndHoldPontosA < 10) {
-				pontosEquipeA ++;
-			}
-			else if(pressAndHoldPontosA < 20) {
-				pontosEquipeA += 10;
-			}
-			else {
-				pontosEquipeA += 50;
-			}
+			flagBuzzer = true;
+			while(flagBotaoPontoA) {
+				if(pressAndHoldPontosA < 10) {
+					pontosEquipeA ++;
+				}
+				else if(pressAndHoldPontosA < 20) {
+					pontosEquipeA += 10;
+				}
+				else {
+					pontosEquipeA += 50;
+				}
 
-			if(pontosEquipeA > 999) {
-				pontosEquipeA = 0;
-			}
+				if(pontosEquipeA > 999) {
+					pontosEquipeA = 0;
+				}
 
-			if(pressAndHoldPontosA < 20) {
-				pressAndHoldPontosA ++;
-			}
+				if(pressAndHoldPontosA < 20) {
+					pressAndHoldPontosA ++;
+				}
 
-			telaAjustaPontos();
-			HAL_Delay(DEBOUNCE_HOLD);
+				telaAjustaPontos();
+				HAL_Delay(DEBOUNCE_HOLD);
+			}
 		}
 		else {
 			pressAndHoldPontosA = 0;
 		}
 
 		if(flagBotaoPontoB) {
-			if(pressAndHoldPontosB < 10) {
-				pontosEquipeB ++;
-			}
-			else if(pressAndHoldPontosB < 20) {
-				pontosEquipeB += 10;
-			}
-			else {
-				pontosEquipeB += 50;
-			}
+			flagBuzzer = true;
+			while(flagBotaoPontoB) {
+				if(pressAndHoldPontosB < 10) {
+					pontosEquipeB ++;
+				}
+				else if(pressAndHoldPontosB < 20) {
+					pontosEquipeB += 10;
+				}
+				else {
+					pontosEquipeB += 50;
+				}
 
-			if(pontosEquipeB > 999) {
-				pontosEquipeB = 0;
-			}
+				if(pontosEquipeB > 999) {
+					pontosEquipeB = 0;
+				}
 
-			if(pressAndHoldPontosB < 20) {
-				pressAndHoldPontosB ++;
-			}
+				if(pressAndHoldPontosB < 20) {
+					pressAndHoldPontosB ++;
+				}
 
-			telaAjustaPontos();
-			HAL_Delay(DEBOUNCE_HOLD);
+				telaAjustaPontos();
+				HAL_Delay(DEBOUNCE_HOLD);
+			}
 		}
 		else {
 			pressAndHoldPontosB = 0;
@@ -284,6 +343,7 @@ void menuConfiguracaoPontos() {
 			if(pressAndHoldProgramacao >= TEMPO_PRESS_AND_HOLD) {
 				pressAndHoldProgramacao = 0;
 				flagMenu = false;
+				flagBuzzer = true;
 
 				memset(rs485EnviaBuffer, TAMANHO_RS485_BUFFER, 0x00);
 				strcat(rs485EnviaBuffer, "$,50,");
@@ -302,6 +362,7 @@ void menuConfiguracaoPontos() {
 		else {
 			if(flagBotaoProgramacao) {
 				pressAndHoldProgramacao = 1;
+				flagBuzzer = true;
 			}
 		}
 	}
@@ -318,6 +379,7 @@ void menuConfiguracoes() {
 
 	if(!pressAndHoldProgramacao) {
 		if(flagBotaoProgramacao) {
+			flagBuzzer = true;
 			pressAndHoldProgramacao = 1;
 		}
 		return;
@@ -334,7 +396,7 @@ void menuConfiguracoes() {
 
 		menuConfiguracaoCronometro();
 		menuConfiguracaoPontos();
-		return;
+		telaOperacao();
 	}
 
 	pressAndHoldProgramacao = 0;

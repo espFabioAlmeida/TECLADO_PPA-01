@@ -30,6 +30,14 @@ TAREFAS 100ms
 void tarefas100ms() {
 	reiniciaWatchDog();
 
+	if(flagBuzzer) {
+		flagBuzzer = false;
+		on(BUZZER_GPIO_Port, BUZZER_Pin);
+	}
+	else {
+		off(BUZZER_GPIO_Port, BUZZER_Pin);
+	}
+
 	if(flagBotaoZeraFalta) {
 		if(pressAndHoldZeraFaltas < TEMPO_PRESS_AND_HOLD) {
 			pressAndHoldZeraFaltas ++;

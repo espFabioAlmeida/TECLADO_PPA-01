@@ -30,6 +30,7 @@ void comandosTeclado() {
 	else {
 		if(flagBotaoPontoA) {
 			whileBotaoPontoA = true;
+			flagBuzzer = true;
 			HAL_UART_Transmit(&huart2, "$,02,\r\n", 7, 200);
 		}
 	}
@@ -42,6 +43,7 @@ void comandosTeclado() {
 	else {
 		if(flagBotao2PontosA) {
 			whileBotao2PontosA = true;
+			flagBuzzer = true;
 			HAL_UART_Transmit(&huart2, "$,03,\r\n", 7, 200);
 		}
 	}
@@ -54,6 +56,7 @@ void comandosTeclado() {
 	else {
 		if(flagBotao3PontosA) {
 			whileBotao3PontosA = true;
+			flagBuzzer = true;
 			HAL_UART_Transmit(&huart2, "$,04,\r\n", 7, 200);
 		}
 	}
@@ -66,6 +69,7 @@ void comandosTeclado() {
 	else {
 		if(flagBotaoRemovePontoA) {
 			whileBotaoRemovePontoA = true;
+			flagBuzzer = true;
 			HAL_UART_Transmit(&huart2, "$,05,\r\n", 7, 200);
 		}
 	}
@@ -78,6 +82,7 @@ void comandosTeclado() {
 	else {
 		if(flagBotaoFaltaA) {
 			whileBotaoFaltaA = true;
+			flagBuzzer = true;
 			HAL_UART_Transmit(&huart2, "$,06,\r\n", 7, 200);
 		}
 	}
@@ -90,6 +95,7 @@ void comandosTeclado() {
 	else {
 		if(flagBotaoRemoveFaltaA) {
 			whileBotaoRemoveFaltaA = true;
+			flagBuzzer = true;
 			HAL_UART_Transmit(&huart2, "$,07,\r\n", 7, 200);
 		}
 	}
@@ -103,6 +109,7 @@ void comandosTeclado() {
 		if(flagBotaoTempoA) {
 			whileBotaoTempoA = true;
 			if(!flagCronometro) {
+				flagBuzzer = true;
 				HAL_UART_Transmit(&huart2, "$,08,\r\n", 7, 200);
 			}
 		}
@@ -116,6 +123,7 @@ void comandosTeclado() {
 	else {
 		if(flagBotaoPontoB) {
 			whileBotaoPontoB = true;
+			flagBuzzer = true;
 			HAL_UART_Transmit(&huart2, "$,09,\r\n", 7, 200);
 		}
 	}
@@ -128,6 +136,7 @@ void comandosTeclado() {
 	else {
 		if(flagBotao2PontosB) {
 			whileBotao2PontosB = true;
+			flagBuzzer = true;
 			HAL_UART_Transmit(&huart2, "$,10,\r\n", 7, 200);
 		}
 	}
@@ -140,6 +149,7 @@ void comandosTeclado() {
 	else {
 		if(flagBotao3PontosB) {
 			whileBotao3PontosB = true;
+			flagBuzzer = true;
 			HAL_UART_Transmit(&huart2, "$,11,\r\n", 7, 200);
 		}
 	}
@@ -152,6 +162,7 @@ void comandosTeclado() {
 	else {
 		if(flagBotaoRemovePontoB) {
 			whileBotaoRemovePontoB = true;
+			flagBuzzer = true;
 			HAL_UART_Transmit(&huart2, "$,12,\r\n", 7, 200);
 		}
 	}
@@ -164,6 +175,7 @@ void comandosTeclado() {
 	else {
 		if(flagBotaoFaltaB) {
 			whileBotaoFaltaB = true;
+			flagBuzzer = true;
 			HAL_UART_Transmit(&huart2, "$,13,\r\n", 7, 200);
 		}
 	}
@@ -176,6 +188,7 @@ void comandosTeclado() {
 	else {
 		if(flagBotaoRemoveFaltaB) {
 			whileBotaoRemoveFaltaB = true;
+			flagBuzzer = true;
 			HAL_UART_Transmit(&huart2, "$,14,\r\n", 7, 200);
 		}
 	}
@@ -189,6 +202,7 @@ void comandosTeclado() {
 		if(flagBotaoTempoB) {
 			whileBotaoTempoB = true;
 			if(!flagCronometro) {
+				flagBuzzer = true;
 				HAL_UART_Transmit(&huart2, "$,15,\r\n", 7, 200);
 			}
 		}
@@ -203,7 +217,9 @@ void comandosTeclado() {
 		if(flagBotaoSoltaCronometro) {
 			whileBotaoSoltaCronometro = true;
 			flagCronometro = true;
+			flagBuzzer = true;
 			HAL_UART_Transmit(&huart2, "$,16,\r\n", 7, 200);
+			telaOperacao();
 		}
 	}
 
@@ -216,7 +232,9 @@ void comandosTeclado() {
 		if(flagBotaoParaCronometro) {
 			whileBotaoParaCronometro = true;
 			flagCronometro = false;
+			flagBuzzer = true;
 			HAL_UART_Transmit(&huart2, "$,17,\r\n", 7, 200);
+			telaOperacao();
 		}
 	}
 
@@ -229,6 +247,7 @@ void comandosTeclado() {
 		if(flagBotaoCampainha) {
 			whileBotaoCampainha = true;
 			if(!flagCronometro) {
+				flagBuzzer = true;
 				HAL_UART_Transmit(&huart2, "$,18,\r\n", 7, 200);
 			}
 		}
@@ -244,6 +263,7 @@ void comandosTeclado() {
 		if(pressAndHoldZeraFaltas >= TEMPO_PRESS_AND_HOLD) {
 			whileBotaoZeraFaltas = true;
 			if(!flagCronometro) {
+				flagBuzzer = true;
 				HAL_UART_Transmit(&huart2, "$,19,\r\n", 7, 200);
 			}
 		}
@@ -259,6 +279,7 @@ void comandosTeclado() {
 		if(pressAndHoldZeraCronometro >= TEMPO_PRESS_AND_HOLD) {
 			whileBotaoZeraCronometro = true;
 			if(!flagCronometro) {
+				flagBuzzer = true;
 				HAL_UART_Transmit(&huart2, "$,20,\r\n", 7, 200);
 			}
 		}
@@ -274,6 +295,7 @@ void comandosTeclado() {
 		if(pressAndHoldZeraTudo >= TEMPO_PRESS_AND_HOLD) {
 			whileBotaoZeraTudo = true;
 			if(!flagCronometro) {
+				flagBuzzer = true;
 				HAL_UART_Transmit(&huart2, "$,21,\r\n", 7, 200);
 			}
 		}
@@ -282,6 +304,7 @@ void comandosTeclado() {
 	if(whileBotaoPeriodo) {
 		if(!flagBotaoPeriodo) {
 			if(pressAndHoldPeriodo >= TEMPO_PRESS_AND_HOLD) { //Hold
+				flagBuzzer = true;
 				HAL_UART_Transmit(&huart2, "$,23,\r\n", 7, 200);
 			}
 			else { //Press
@@ -293,6 +316,7 @@ void comandosTeclado() {
 	}
 	else {
 		if(flagBotaoPeriodo) {
+			flagBuzzer = true;
 			whileBotaoPeriodo = true;
 			pressAndHoldPeriodo = 1;
 		}

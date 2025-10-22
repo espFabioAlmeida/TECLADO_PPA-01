@@ -114,11 +114,6 @@ uint16_t
 	pressAndHoldZeraTudo = 0,
 	pressAndHoldPeriodo = 0;
 
-uint8_t
-	displaysCronometro[5],
-	displaysEquipeA[5],
-	displaysEquipeB[5];
-
 char
 	rs485Buffer[TAMANHO_RS485_BUFFER],
 	rs485EnviaBuffer[TAMANHO_RS485_BUFFER];
