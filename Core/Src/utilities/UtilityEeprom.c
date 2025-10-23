@@ -134,17 +134,35 @@ uint8_t readExternalEeprom(uint8_t device, uint16_t address) {
 	return data;
 }
 /*==============================================================================
+SALVA CRONOMETRO
+==============================================================================*/
+void salvaCronometro() {
+	writeExternalEeprom(0, 1, setpointCronometro.minutos);
+	writeExternalEeprom(0, 2, setpointCronometro.segundos);
+	writeExternalEeprom(0, 3, setpointCronometro.decimais);
+	writeExternalEeprom(0, 4, cronometro.minutos);
+	writeExternalEeprom(0, 5, cronometro.segundos);
+	writeExternalEeprom(0, 6, cronometro.decimais);
+	writeExternalEeprom(0, 7, tipoCronometro);
+}
+/*==============================================================================
 WRITE ALL EEPROM
 ==============================================================================*/
 void writeAllEeprom() {
-
+	salvaCronometro();
 }
 /*==============================================================================
 READ EEPROM
 ==============================================================================*/
 void readEeprom() {
 	if(HAL_I2C_IsDeviceReady(&hi2c2, EEPROM_ADDR_0 + 1, 10, 100)) {
-
+		setpointCronometro.minutos = readExternalEeprom(0, 1);
+		setpointCronometro.segundos = readExternalEeprom(0, 2);
+		setpointCronometro.decimais = readExternalEeprom(0, 3);
+		cronometro.minutos = readExternalEeprom(0, 4);
+		cronometro.segundos = readExternalEeprom(0, 5);
+		cronometro.decimais = readExternalEeprom(0, 6);
+		tipoCronometro = readExternalEeprom(0, 7);
 	}
 }
 /*==============================================================================
@@ -153,6 +171,16 @@ APAGA EEPROM
 void apagaEeprom() {
 	if(HAL_I2C_IsDeviceReady(&hi2c2, EEPROM_ADDR_0 + 1, 10, 100)) {
 		writeExternalEeprom(0, 0, EEPROM_INICIALIZADA);
+
+		setpointCronometro.minutos = 20;
+		setpointCronometro.segundos = 0;
+		setpointCronometro.decimais = 0;
+
+		cronometro.minutos = 20;
+		cronometro.segundos = 0;
+		cronometro.decimais = 0;
+
+		tipoCronometro = REGRESSIVO;
 
 		writeAllEeprom();
 	}

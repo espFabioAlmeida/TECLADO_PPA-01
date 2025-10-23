@@ -143,6 +143,8 @@ void menuConfiguracaoValorAtualCronometro() {
 			strcat(rs485EnviaBuffer, ",\r\n");
 
 			HAL_UART_Transmit(&huart2, rs485EnviaBuffer, strlen(rs485EnviaBuffer), 300);
+
+			salvaCronometro();
 			flagMenu = false;
 		}
 	}
