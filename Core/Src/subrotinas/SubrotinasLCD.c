@@ -82,7 +82,7 @@ void telaAjustaCronometro() {
 	limpaLcd();
 	lcdPosLc(1, 1);
 	lcdEscreve("SET: ");
-	escreveDado(setpointCronometro.minutos, 1, 1, 2);
+	escreveDado(setpointCronometro.minutos, 1, 6, 2);
 	lcdEscreve(":");
 	escreveDado(setpointCronometro.segundos, 0, 0, 2);
 	lcdEscreve(".");

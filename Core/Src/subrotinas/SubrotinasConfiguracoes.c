@@ -18,6 +18,8 @@ void menuConfiguracaoValorAtualCronometro() {
 	uint8_t flagMenu = true;
 	telaAjustaValorAtualCronometro();
 
+	while(flagBotaoProgramacao);
+
 	while(flagMenu) {
 		if(flagBotao1Min) {
 			flagBuzzer = true;
@@ -103,9 +105,9 @@ void menuConfiguracaoValorAtualCronometro() {
 			}
 		}
 
-		if(flagBotaoPontoA || flagBotaoPontoB) {
+		if(flagBotaoFaltaA || flagBotaoFaltaB) {
 			flagBuzzer = true;
-			while(flagBotaoPontoA || flagBotaoPontoB) {
+			while(flagBotaoFaltaA || flagBotaoFaltaB) {
 				cronometro.decimais ++;
 				if(cronometro.decimais > 9) {
 					cronometro.decimais = 0;
@@ -115,9 +117,9 @@ void menuConfiguracaoValorAtualCronometro() {
 			}
 		}
 
-		if(flagBotaoRemovePontoA || flagBotaoRemovePontoB) {
+		if(flagBotaoRemoveFaltaA || flagBotaoRemoveFaltaB) {
 			flagBuzzer = true;
-			while(flagBotaoRemovePontoA || flagBotaoRemovePontoB) {
+			while(flagBotaoRemoveFaltaA || flagBotaoRemoveFaltaB) {
 				cronometro.decimais --;
 				if(cronometro.decimais > 9) {
 					cronometro.decimais = 9;
@@ -131,12 +133,12 @@ void menuConfiguracaoValorAtualCronometro() {
 			flagBuzzer = true;
 			memset(rs485EnviaBuffer, TAMANHO_RS485_BUFFER, 0x00);
 			strcat(rs485EnviaBuffer, "$,01,");
-			sprintfRs485(setpointCronometro.minutos, 3);
-			sprintfRs485(setpointCronometro.segundos, 3);
+			sprintfRs485(setpointCronometro.minutos, 2);
+			sprintfRs485(setpointCronometro.segundos, 2);
 			sprintfRs485(setpointCronometro.decimais, 1);
 			strcat(rs485EnviaBuffer, ",");
-			sprintfRs485(cronometro.minutos, 3);
-			sprintfRs485(cronometro.segundos, 3);
+			sprintfRs485(cronometro.minutos, 2);
+			sprintfRs485(cronometro.segundos, 2);
 			sprintfRs485(cronometro.decimais, 1);
 			strcat(rs485EnviaBuffer, ",");
 			sprintfRs485(tipoCronometro, 1);
@@ -148,6 +150,8 @@ void menuConfiguracaoValorAtualCronometro() {
 			flagMenu = false;
 		}
 	}
+
+	while(flagBotaoProgramacao);
 }
 /*=============================================================================
 MENU CONFIGURAÇÃO CRONOMETRO
@@ -256,7 +260,7 @@ void menuConfiguracaoCronometro() {
 		}
 
 		if(pressAndHoldProgramacao) {
-			if(pressAndHoldProgramacao >= TEMPO_PRESS_AND_HOLD) {
+			if(pressAndHoldProgramacao >= TEMPO_PRESS_AND_WAIT) {
 				pressAndHoldProgramacao = 0;
 				flagBuzzer = true;
 				menuConfiguracaoValorAtualCronometro();
@@ -279,7 +283,7 @@ void menuConfiguracaoCronometro() {
 MENU CONFIGURAÇÃO PONTOS
 ==============================================================================*/
 void menuConfiguracaoPontos() {
-	uint8_t flagMenu = true, pressAndHoldPontosA = 0, pressAndHoldPontosB = 0;
+	uint8_t flagMenu = true, pressAndHoldPontosA = 0, pressAndHoldPontosB = 0, pressAndHoldRemovePontosA = 0, pressAndHoldRemovePontosB = 0;
 	telaAjustaPontos();
 
 	while(flagMenu) {
@@ -341,8 +345,66 @@ void menuConfiguracaoPontos() {
 			pressAndHoldPontosB = 0;
 		}
 
+		if(flagBotaoRemovePontoA) {
+			flagBuzzer = true;
+			while(flagBotaoRemovePontoA) {
+				if(pressAndHoldRemovePontosA < 10) {
+					pontosEquipeA --;
+				}
+				else if(pressAndHoldRemovePontosA < 20) {
+					pontosEquipeA -= 10;
+				}
+				else {
+					pontosEquipeA -= 50;
+				}
+
+				if(pontosEquipeA > 999) {
+					pontosEquipeA = 999;
+				}
+
+				if(pressAndHoldRemovePontosA < 20) {
+					pressAndHoldRemovePontosA ++;
+				}
+
+				telaAjustaPontos();
+				HAL_Delay(DEBOUNCE_HOLD);
+			}
+		}
+		else {
+			pressAndHoldRemovePontosA = 0;
+		}
+
+		if(flagBotaoRemovePontoB) {
+			flagBuzzer = true;
+			while(flagBotaoRemovePontoB) {
+				if(pressAndHoldRemovePontosB < 10) {
+					pontosEquipeB --;
+				}
+				else if(pressAndHoldRemovePontosB < 20) {
+					pontosEquipeB -= 10;
+				}
+				else {
+					pontosEquipeB -= 50;
+				}
+
+				if(pontosEquipeB > 999) {
+					pontosEquipeB = 999;
+				}
+
+				if(pressAndHoldRemovePontosB < 20) {
+					pressAndHoldRemovePontosB ++;
+				}
+
+				telaAjustaPontos();
+				HAL_Delay(DEBOUNCE_HOLD);
+			}
+		}
+		else {
+			pressAndHoldRemovePontosB = 0;
+		}
+
 		if(pressAndHoldProgramacao) {
-			if(pressAndHoldProgramacao >= TEMPO_PRESS_AND_HOLD) {
+			if(pressAndHoldProgramacao >= TEMPO_PRESS_AND_WAIT) {
 				pressAndHoldProgramacao = 0;
 				flagMenu = false;
 				flagBuzzer = true;
@@ -368,6 +430,8 @@ void menuConfiguracaoPontos() {
 			}
 		}
 	}
+
+	while(flagBotaoProgramacao);
 }
 /*=============================================================================
 CONFIGURACOES
@@ -387,11 +451,11 @@ void menuConfiguracoes() {
 		return;
 	}
 
-	if(flagBotaoProgramacao && pressAndHoldProgramacao < TEMPO_PRESS_AND_HOLD) {
+	if(flagBotaoProgramacao && pressAndHoldProgramacao < TEMPO_PRESS_AND_WAIT) {
 		return;
 	}
 
-	if(pressAndHoldProgramacao >= TEMPO_PRESS_AND_HOLD) {
+	if(pressAndHoldProgramacao >= TEMPO_PRESS_AND_WAIT) {
 		flagBuzzer = true;
 		while(flagBotaoProgramacao);
 		pressAndHoldProgramacao = 0;

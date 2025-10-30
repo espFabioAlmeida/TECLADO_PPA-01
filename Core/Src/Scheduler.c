@@ -56,7 +56,7 @@ void tarefas10ms() {
 	}
 
 	if(pressAndHoldProgramacao) {
-		if(pressAndHoldProgramacao < TEMPO_PRESS_AND_HOLD) {
+		if(pressAndHoldProgramacao < TEMPO_PRESS_AND_WAIT) {
 			pressAndHoldProgramacao ++;
 		}
 	}

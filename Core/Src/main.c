@@ -152,7 +152,7 @@ void reiniciaWatchDog() {
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 	if(huart-> Instance==USART2) { // RS485
-		rs485Buffer[contadorRS485Buffer] = rs485DataIn;
+		/*rs485Buffer[contadorRS485Buffer] = rs485DataIn;
 		contadorRS485Buffer ++;
 
 		if(contadorRS485Buffer >= TAMANHO_RS485_BUFFER) {
@@ -161,7 +161,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 
 		if(rs485DataIn == 0x0A) {
 			flagPacoteRS485 = true;
-		}
+		}*/
 	}
 
 }
@@ -214,6 +214,7 @@ int main(void)
   telaOperacao();
 
   HAL_UART_Receive_DMA(&huart2, &rs485DataIn, 1);
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
