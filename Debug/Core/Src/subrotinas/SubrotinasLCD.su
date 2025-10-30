@@ -1,5 +1,5 @@
 ../Core/Src/subrotinas/SubrotinasLCD.c:16:6:telaInicial	16	static
-../Core/Src/subrotinas/SubrotinasLCD.c:41:6:telaOperacao	8	static
-../Core/Src/subrotinas/SubrotinasLCD.c:66:6:telaAjustaValorAtualCronometro	8	static
-../Core/Src/subrotinas/SubrotinasLCD.c:79:6:telaAjustaCronometro	8	static
-../Core/Src/subrotinas/SubrotinasLCD.c:100:6:telaAjustaPontos	8	static
+../Core/Src/subrotinas/SubrotinasLCD.c:43:6:telaOperacao	8	static
+../Core/Src/subrotinas/SubrotinasLCD.c:68:6:telaAjustaValorAtualCronometro	8	static
+../Core/Src/subrotinas/SubrotinasLCD.c:81:6:telaAjustaCronometro	8	static
+../Core/Src/subrotinas/SubrotinasLCD.c:102:6:telaAjustaPontos	8	static

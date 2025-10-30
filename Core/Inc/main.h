@@ -61,8 +61,6 @@ void Error_Handler(void);
 #define LED_CPU_GPIO_Port GPIOC
 #define LED_COM_Pin GPIO_PIN_14
 #define LED_COM_GPIO_Port GPIOC
-#define TECLADO_C2_Pin GPIO_PIN_15
-#define TECLADO_C2_GPIO_Port GPIOC
 #define TECLADO_L5_Pin GPIO_PIN_0
 #define TECLADO_L5_GPIO_Port GPIOC
 #define TECLADO_L4_Pin GPIO_PIN_1
@@ -81,8 +79,8 @@ void Error_Handler(void);
 #define TECLADO_L2_GPIO_Port GPIOB
 #define TECLADO_L1_Pin GPIO_PIN_14
 #define TECLADO_L1_GPIO_Port GPIOB
-#define TECLADO_C2B15_Pin GPIO_PIN_15
-#define TECLADO_C2B15_GPIO_Port GPIOB
+#define TECLADO_C2_Pin GPIO_PIN_15
+#define TECLADO_C2_GPIO_Port GPIOB
 #define LCD_RS_Pin GPIO_PIN_6
 #define LCD_RS_GPIO_Port GPIOC
 #define LCD_ENABLE_Pin GPIO_PIN_7

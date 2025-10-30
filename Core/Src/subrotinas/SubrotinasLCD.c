@@ -29,7 +29,9 @@ void telaInicial() {
 	lcdPosLc(2, 1);
 	lcdEscreve("V");
 	escreveDado(VERSAO_FIRMWARE, 0, 0, 2);
-	lcdEscreve(".0 OUT/2025");
+	lcdEscreve(".");
+	escreveDado(SUBVERSAO_FIRMWARE, 0, 0, 1);
+	lcdEscreve(" OUT/2025");
 	HAL_Delay(TEMPO_TELA_INICIAL);
 
 	flagBuzzer = true;
