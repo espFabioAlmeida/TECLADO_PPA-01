@@ -1,0 +1,7 @@
+../Core/Src/utilities/UtilityEeprom.c:31:6:writeExternalEeprom	19
+../Core/Src/utilities/UtilityEeprom.c:83:9:readExternalEeprom	19
+../Core/Src/utilities/UtilityEeprom.c:139:6:salvaCronometro	1
+../Core/Src/utilities/UtilityEeprom.c:151:6:writeAllEeprom	1
+../Core/Src/utilities/UtilityEeprom.c:157:6:readEeprom	2
+../Core/Src/utilities/UtilityEeprom.c:171:6:apagaEeprom	2
+../Core/Src/utilities/UtilityEeprom.c:191:6:verificaEeprom	3

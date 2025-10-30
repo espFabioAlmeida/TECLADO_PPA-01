@@ -1,0 +1,12 @@
+../Core/Src/utilities/UtilityLCD.c:17:6:enviaNibbleLcd	16	static
+../Core/Src/utilities/UtilityLCD.c:30:6:enviaByteLcd	16	static
+../Core/Src/utilities/UtilityLCD.c:46:6:lcdEscreveChar	16	static
+../Core/Src/utilities/UtilityLCD.c:52:6:lcdEscreveString	32	static
+../Core/Src/utilities/UtilityLCD.c:60:6:lcdEscreve	32	static
+../Core/Src/utilities/UtilityLCD.c:68:6:lcdCursor	16	static
+../Core/Src/utilities/UtilityLCD.c:75:6:limpaLcd	8	static
+../Core/Src/utilities/UtilityLCD.c:82:6:inicializaLcd	8	static
+../Core/Src/utilities/UtilityLCD.c:109:6:lcdPosLc	24	static
+../Core/Src/utilities/UtilityLCD.c:126:6:escreveDado	72	static
+../Core/Src/utilities/UtilityLCD.c:176:6:escreveSimbolo	24	static
+../Core/Src/utilities/UtilityLCD.c:215:6:limpaLinha	16	static

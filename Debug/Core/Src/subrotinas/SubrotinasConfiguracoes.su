@@ -1,0 +1,4 @@
+../Core/Src/subrotinas/SubrotinasConfiguracoes.c:17:6:menuConfiguracaoValorAtualCronometro	16	static
+../Core/Src/subrotinas/SubrotinasConfiguracoes.c:155:6:menuConfiguracaoCronometro	16	static
+../Core/Src/subrotinas/SubrotinasConfiguracoes.c:281:6:menuConfiguracaoPontos	16	static
+../Core/Src/subrotinas/SubrotinasConfiguracoes.c:375:6:menuConfiguracoes	8	static

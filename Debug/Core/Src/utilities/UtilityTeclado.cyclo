@@ -1,0 +1,3 @@
+../Core/Src/utilities/UtilityTeclado.c:15:6:desligaSaidasTeclado	1
+../Core/Src/utilities/UtilityTeclado.c:25:6:acionaSaidaTeclado	6
+../Core/Src/utilities/UtilityTeclado.c:39:6:leituraTeclado	7
