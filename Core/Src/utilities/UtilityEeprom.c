@@ -24,7 +24,7 @@ enum TIPO_MEMORIA {
 #define EEPROM_ADDR_7   0x57
 
 #define	EEPROM_INICIALIZADA		0x0A
-const uint8_t MEMORIA = MEMORIA_24LC256;
+const uint8_t MEMORIA = MEMORIA_24LC08;
 /*==============================================================================
 WRITE EXTERNAL EEPROM
 ==============================================================================*/
