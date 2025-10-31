@@ -112,7 +112,6 @@ extern uint8_t
 	flagBotaoRemovePontoB,
 	flagBotao3PontosB,
 
-	flagLedCPU,
 	flagLedCOM,
 
 	flagBuzzer,

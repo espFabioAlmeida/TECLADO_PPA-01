@@ -7,16 +7,19 @@
 C_SRCS += \
 ../Core/Src/subrotinas/SubrotinasConfiguracoes.c \
 ../Core/Src/subrotinas/SubrotinasLCD.c \
+../Core/Src/subrotinas/SubrotinasProtocoloRS485.c \
 ../Core/Src/subrotinas/SubrotinasTeclado.c 
 
 OBJS += \
 ./Core/Src/subrotinas/SubrotinasConfiguracoes.o \
 ./Core/Src/subrotinas/SubrotinasLCD.o \
+./Core/Src/subrotinas/SubrotinasProtocoloRS485.o \
 ./Core/Src/subrotinas/SubrotinasTeclado.o 
 
 C_DEPS += \
 ./Core/Src/subrotinas/SubrotinasConfiguracoes.d \
 ./Core/Src/subrotinas/SubrotinasLCD.d \
+./Core/Src/subrotinas/SubrotinasProtocoloRS485.d \
 ./Core/Src/subrotinas/SubrotinasTeclado.d 
 
 
@@ -27,7 +30,7 @@ Core/Src/subrotinas/%.o Core/Src/subrotinas/%.su Core/Src/subrotinas/%.cyclo: ..
 clean: clean-Core-2f-Src-2f-subrotinas
 
 clean-Core-2f-Src-2f-subrotinas:
-	-$(RM) ./Core/Src/subrotinas/SubrotinasConfiguracoes.cyclo ./Core/Src/subrotinas/SubrotinasConfiguracoes.d ./Core/Src/subrotinas/SubrotinasConfiguracoes.o ./Core/Src/subrotinas/SubrotinasConfiguracoes.su ./Core/Src/subrotinas/SubrotinasLCD.cyclo ./Core/Src/subrotinas/SubrotinasLCD.d ./Core/Src/subrotinas/SubrotinasLCD.o ./Core/Src/subrotinas/SubrotinasLCD.su ./Core/Src/subrotinas/SubrotinasTeclado.cyclo ./Core/Src/subrotinas/SubrotinasTeclado.d ./Core/Src/subrotinas/SubrotinasTeclado.o ./Core/Src/subrotinas/SubrotinasTeclado.su
+	-$(RM) ./Core/Src/subrotinas/SubrotinasConfiguracoes.cyclo ./Core/Src/subrotinas/SubrotinasConfiguracoes.d ./Core/Src/subrotinas/SubrotinasConfiguracoes.o ./Core/Src/subrotinas/SubrotinasConfiguracoes.su ./Core/Src/subrotinas/SubrotinasLCD.cyclo ./Core/Src/subrotinas/SubrotinasLCD.d ./Core/Src/subrotinas/SubrotinasLCD.o ./Core/Src/subrotinas/SubrotinasLCD.su ./Core/Src/subrotinas/SubrotinasProtocoloRS485.cyclo ./Core/Src/subrotinas/SubrotinasProtocoloRS485.d ./Core/Src/subrotinas/SubrotinasProtocoloRS485.o ./Core/Src/subrotinas/SubrotinasProtocoloRS485.su ./Core/Src/subrotinas/SubrotinasTeclado.cyclo ./Core/Src/subrotinas/SubrotinasTeclado.d ./Core/Src/subrotinas/SubrotinasTeclado.o ./Core/Src/subrotinas/SubrotinasTeclado.su
 
 .PHONY: clean-Core-2f-Src-2f-subrotinas
 

@@ -49,7 +49,6 @@ TIM_HandleTypeDef htim2;
 TIM_HandleTypeDef htim3;
 
 UART_HandleTypeDef huart2;
-DMA_HandleTypeDef hdma_usart2_rx;
 
 /* USER CODE BEGIN PV */
 CronometroTypeDef
@@ -88,7 +87,6 @@ uint8_t
 	flagBotaoRemovePontoB = false,
 	flagBotao3PontosB = false,
 
-	flagLedCPU = false,
 	flagLedCOM = false,
 
 	flagBuzzer = false,
@@ -122,7 +120,6 @@ char
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
-static void MX_DMA_Init(void);
 static void MX_IWDG_Init(void);
 static void MX_TIM2_Init(void);
 static void MX_TIM3_Init(void);
@@ -152,7 +149,7 @@ void reiniciaWatchDog() {
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 	if(huart-> Instance==USART2) { // RS485
-		/*rs485Buffer[contadorRS485Buffer] = rs485DataIn;
+		rs485Buffer[contadorRS485Buffer] = rs485DataIn;
 		contadorRS485Buffer ++;
 
 		if(contadorRS485Buffer >= TAMANHO_RS485_BUFFER) {
@@ -161,7 +158,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 
 		if(rs485DataIn == 0x0A) {
 			flagPacoteRS485 = true;
-		}*/
+		}
 	}
 
 }
@@ -196,7 +193,6 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_DMA_Init();
   MX_IWDG_Init();
   MX_TIM2_Init();
   MX_TIM3_Init();
@@ -213,7 +209,9 @@ int main(void)
   telaInicial();
   telaOperacao();
 
-  HAL_UART_Receive_DMA(&huart2, &rs485DataIn, 1);
+  limpaRS485Buffer();
+
+  //HAL_UART_Receive_DMA(&huart2, &rs485DataIn, 1);
 
   /* USER CODE END 2 */
 
@@ -223,9 +221,11 @@ int main(void)
   {
 	  comandosTeclado();
 	  menuConfiguracoes();
+	  protocoloRS485();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+	  HAL_UART_Receive_IT(&huart2, &rs485DataIn, 1);
   }
   /* USER CODE END 3 */
 }
@@ -471,22 +471,6 @@ static void MX_USART2_UART_Init(void)
   /* USER CODE BEGIN USART2_Init 2 */
 
   /* USER CODE END USART2_Init 2 */
-
-}
-
-/**
-  * Enable DMA controller clock
-  */
-static void MX_DMA_Init(void)
-{
-
-  /* DMA controller clock enable */
-  __HAL_RCC_DMA1_CLK_ENABLE();
-
-  /* DMA interrupt init */
-  /* DMA1_Channel4_5_6_7_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA1_Channel4_5_6_7_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(DMA1_Channel4_5_6_7_IRQn);
 
 }
 

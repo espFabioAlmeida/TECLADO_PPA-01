@@ -75,6 +75,16 @@ void tarefas100ms() {
 		off(BUZZER_GPIO_Port, BUZZER_Pin);
 	}
 
+	if(flagLedCOM) {
+		flagLedCOM = false;
+		off(LED_COM_GPIO_Port, LED_COM_Pin);
+	}
+	else {
+		on(LED_COM_GPIO_Port, LED_COM_Pin);
+	}
+
+	toggle(LED_CPU_GPIO_Port, LED_CPU_Pin);
+
 }
 /*==============================================================================
 TAREFAS 1s
