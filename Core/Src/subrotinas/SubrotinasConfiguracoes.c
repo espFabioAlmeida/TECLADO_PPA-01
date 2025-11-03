@@ -409,7 +409,7 @@ void menuConfiguracaoPontos() {
 				flagMenu = false;
 				flagBuzzer = true;
 
-				memset(rs485EnviaBuffer, TAMANHO_RS485_BUFFER, 0x00);
+				memset(rs485EnviaBuffer, 0x00, TAMANHO_RS485_BUFFER);
 				strcat(rs485EnviaBuffer, "$,50,");
 				sprintfRs485(pontosEquipeA, 3);
 				strcat(rs485EnviaBuffer, ",");
