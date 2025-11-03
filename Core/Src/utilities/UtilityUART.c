@@ -11,7 +11,7 @@ DEBOUNCE
 ==============================================================================*/
 void limpaRS485Buffer() {
 	contadorRS485Buffer = 0;
-	memset(rs485Buffer, TAMANHO_RS485_BUFFER, 0x00);
+	memset(rs485Buffer, 0x00, TAMANHO_RS485_BUFFER);
 }
 /*=============================================================================
 SPRINTF RS485
@@ -19,7 +19,7 @@ SPRINTF RS485
 void sprintfRs485(uint32_t valor, uint8_t qntdDig) {
 	//Enviar 0 em qntdDig para ignorar "zeros" a esquerda
 	char dataChar[9];
-	memset(dataChar, 9, 0x00);
+	memset(dataChar, 0x00, 9);
 	sprintf(dataChar, "%u", valor);
 
 	switch(qntdDig) {

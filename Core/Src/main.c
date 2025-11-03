@@ -149,6 +149,10 @@ void reiniciaWatchDog() {
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 	if(huart-> Instance==USART2) { // RS485
+		if(rs485DataIn == 0x00) {
+			return;
+		}
+
 		rs485Buffer[contadorRS485Buffer] = rs485DataIn;
 		contadorRS485Buffer ++;
 

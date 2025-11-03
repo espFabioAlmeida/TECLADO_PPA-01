@@ -1,2 +1,2 @@
 ../Core/Src/utilities/UtilityUART.c:12:6:limpaRS485Buffer	8	static
-../Core/Src/utilities/UtilityUART.c:19:6:sprintfRs485	32	static
+../Core/Src/utilities/UtilityUART.c:19:6:sprintfRs485	40	static

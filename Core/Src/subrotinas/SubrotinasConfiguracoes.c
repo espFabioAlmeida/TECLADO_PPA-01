@@ -131,7 +131,7 @@ void menuConfiguracaoValorAtualCronometro() {
 
 		if(flagBotaoProgramacao) {
 			flagBuzzer = true;
-			memset(rs485EnviaBuffer, TAMANHO_RS485_BUFFER, 0x00);
+			memset(rs485EnviaBuffer, 0x00, TAMANHO_RS485_BUFFER);
 			strcat(rs485EnviaBuffer, "$,01,");
 			sprintfRs485(setpointCronometro.minutos, 2);
 			sprintfRs485(setpointCronometro.segundos, 2);
